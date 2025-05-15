@@ -10,7 +10,12 @@
 <body>
     <div id="container">
         <h1>hiragana</h1>
-        <div id="hiraganaList"\>
+        <div id="hiraganaList"></div>
+        <div class="buttons">
+            <button onclick="start()">Iniciar</button>
+            <button onclick="end()">Encerrar</button>
+        </div>
+        <p id="quantidadeAcertos"></p>
     </div>
 </body>
 
@@ -21,22 +26,77 @@
     const dados = localStorage.getItem('dadosProcessados');
     const obj = JSON.parse(dados);
     const flatObj = obj.flat();
+    const container = document.getElementById('hiraganaList');
     function criarElementos(hiraganaList) {
-        const container = document.getElementById('hiraganaList');
         container.innerHTML = "";
         hiraganaList.forEach(hiragana => {
             container.innerHTML += `
         <div class="hiraganaObject">
-            <p>${hiragana.charac}</p>
-            <p>${hiragana.sound}</p>
+            <p class="charac">${hiragana.charac}</p>
+            <p class="pronounce">${hiragana.sound}</p>
         </div>
     `;
         });
     }
     criarElementos(flatObj);
+
+    const quantidadeAcertos = document.getElementById('quantidadeAcertos');
+
+    function start() {
+        const objetos = document.querySelectorAll('.hiraganaObject');
+
+        objetos.forEach(objeto => {
+            objeto.classList.remove("correto");
+            objeto.classList.remove("incorreto");
+            const pronounce = objeto.querySelector('.pronounce');
+            const input = document.createElement('input');
+            input.type = 'text';
+            input.maxLength = 3;
+            pronounce.replaceWith(input);
+        });
+        quantidadeAcertos.textContent = "";
+    }
+
+    function end() {
+    let acertos = 0;
+    const objetos = document.querySelectorAll('.hiraganaObject');
+
+    objetos.forEach((objeto, index) => {
+        const input = objeto.querySelector('input[type="text"]');
+        let currentHiragana = flatObj[index]
+        if (input) {
+            const p = document.createElement('p');
+            p.className = 'pronounce';
+            p.textContent = currentHiragana.sound;
+            
+            input.replaceWith(p);
+        }
+        if(input.value == currentHiragana.sound){
+            acertos++;
+            objeto.classList.add("correto");
+        } else {
+            objeto.classList.add("incorreto");
+        }
+    });
+        let total = flatObj.length || 0;
+        quantidadeAcertos.textContent = `Você acertou ${acertos}/${total}`;
+
+    }
+
+
+
+
 </script>
 
 <style>
+    .correto{
+        background-color: rgb(0, 174, 0);
+    }
+    
+    .incorreto{
+            background-color: rgb(240, 0, 0);
+    }
+    
     * {
         margin: 0;
         padding: 0;
@@ -50,14 +110,16 @@
     }
 
     #container {
+        padding: 2rem;
         width: 100%;
         display: flex;
         flex-direction: column;
         align-items: center;
+        gap: 2rem;
     }
-    h1{
+
+    h1 {
         text-transform: capitalize;
-        margin: 2rem 0;
         font-size: 3rem;
     }
 
@@ -69,7 +131,6 @@
     }
 
     .hiraganaObject {
-        background-color: transparent;
         display: flex;
         flex-direction: column;
         justify-content: space-around;
@@ -78,7 +139,35 @@
         aspect-ratio: 1/1;
         border: 2px solid black;
     }
-    .hiraganaObject>p{
+
+    .hiraganaObject>input{
+        width: 100%;
         font-size: 1.5rem;
+        text-align: center;
+    }
+
+    .hiraganaObject>p {
+        font-size: 1.5rem;
+    }
+
+    .hiraganaObject>.charac {
+        font-size: 2rem;
+    }
+
+    .buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    button {
+        font-size: 2rem;
+        padding: 1rem 2rem;
+        border-radius: 32px;
+        cursor: pointer;
+    }
+
+    #quantidadeAcertos{
+        font-size: 2.5rem;
     }
 </style>
