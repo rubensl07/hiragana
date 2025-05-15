@@ -1,0 +1,71 @@
+[
+    [
+        { "charac": "あ", "sound": "a" },
+        { "charac": "い", "sound": "i" },
+        { "charac": "う", "sound": "u" },
+        { "charac": "え", "sound": "e" },
+        { "charac": "お", "sound": "o" }
+    ],
+    [
+        { "charac": "か", "sound": "ka" },
+        { "charac": "き", "sound": "ki" },
+        { "charac": "く", "sound": "ku" },
+        { "charac": "け", "sound": "ke" },
+        { "charac": "こ", "sound": "ko" }
+    ],
+    [
+        { "charac": "さ", "sound": "sa" },
+        { "charac": "し", "sound": "shi" },
+        { "charac": "す", "sound": "su" },
+        { "charac": "せ", "sound": "se" },
+        { "charac": "そ", "sound": "so" } 
+    ],
+    [
+        { "charac": "た", "sound": "ta" },
+        { "charac": "ち", "sound": "chi" },
+        { "charac": "つ", "sound": "tsu" },
+        { "charac": "て", "sound": "te" },
+        { "charac": "と", "sound": "to" } 
+    ],
+    [
+        { "charac": "な", "sound": "na" },
+        { "charac": "に", "sound": "ni" },
+        { "charac": "ぬ", "sound": "nu" },
+        { "charac": "ね", "sound": "ne" },
+        { "charac": "の", "sound": "no" }
+    ],
+    [
+        { "charac": "は", "sound": "ha" },
+        { "charac": "ひ", "sound": "hi" },
+        { "charac": "ふ", "sound": "fu" },
+        { "charac": "へ", "sound": "he" },
+        { "charac": "ほ", "sound": "ho" }
+        
+    ],
+    [
+        { "charac": "ま", "sound": "ma" },
+        { "charac": "み", "sound": "mi" },
+        { "charac": "む", "sound": "mu" },
+        { "charac": "め", "sound": "me" },
+        { "charac": "も", "sound": "mo" }
+    ],
+    [
+        { "charac": "や", "sound": "ya" },
+        { "charac": "ゆ", "sound": "yu" },
+        { "charac": "よ", "sound": "yo" }
+    ],
+    [
+        { "charac": "ら", "sound": "ra" },
+        { "charac": "り", "sound": "ri" },
+        { "charac": "る", "sound": "ru" },
+        { "charac": "れ", "sound": "re" },
+        { "charac": "ろ", "sound": "ro" }
+    ],
+    [
+        { "charac": "わ", "sound": "wa" },
+        { "charac": "を", "sound": "wo" }
+    ],
+    [
+        { "charac": "ん", "sound": "n" }
+    ]
+]

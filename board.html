@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="container">
+        <h1>hiragana</h1>
+        <div id="hiraganaList"\>
+    </div>
+</body>
+
+</html>
+
+
+<script>
+    const dados = localStorage.getItem('dadosProcessados');
+    const obj = JSON.parse(dados);
+    const flatObj = obj.flat();
+    function criarElementos(hiraganaList) {
+        const container = document.getElementById('hiraganaList');
+        container.innerHTML = "";
+        hiraganaList.forEach(hiragana => {
+            container.innerHTML += `
+        <div class="hiraganaObject">
+            <p>${hiragana.charac}</p>
+            <p>${hiragana.sound}</p>
+        </div>
+    `;
+        });
+    }
+    criarElementos(flatObj);
+</script>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+
+    body {
+        width: 100vw;
+        background-color: rgb(255, 255, 255);
+    }
+
+    #container {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    h1{
+        text-transform: capitalize;
+        margin: 2rem 0;
+        font-size: 3rem;
+    }
+
+    #hiraganaList {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+    }
+
+    .hiraganaObject {
+        background-color: transparent;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        height: 6rem;
+        align-items: center;
+        aspect-ratio: 1/1;
+        border: 2px solid black;
+    }
+    .hiraganaObject>p{
+        font-size: 1.5rem;
+    }
+</style>
