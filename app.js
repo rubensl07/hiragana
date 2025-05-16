@@ -1,7 +1,7 @@
 fetch('hiragana.json')
     .then(response => response.json())
     .then(data => {
-        const dados = data
+        let gameOn = true
         const flatObj = data.flat();
         const container = document.getElementById('hiraganaList');
         function criarElementos(hiraganaList) {
@@ -58,8 +58,19 @@ fetch('hiragana.json')
             quantidadeAcertos.textContent = `Você acertou ${acertos}/${total}`;
 
         }
-        document.getElementById('buttonStart').addEventListener('click', start);
-        document.getElementById('buttonEnd').addEventListener('click', end);
+
+        function changeGameState(){
+            if(gameOn) {
+                start();
+                buttonChangeGameState.textContent = "Encerrar";
+            } else {
+                end()
+                buttonChangeGameState.textContent = "Iniciar"
+            }
+            gameOn = !gameOn
+        }
+        const buttonChangeGameState = document.getElementById('buttonChangeGameState')
+        buttonChangeGameState.addEventListener('click', changeGameState);
 
     })
     .catch(error => {
