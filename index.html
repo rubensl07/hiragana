@@ -23,14 +23,6 @@
 
 
 <style>
-    .correto{
-        background-color: rgb(0, 174, 0);
-    }
-    
-    .incorreto{
-        background-color: rgb(240, 0, 0);
-    }
-    
     * {
         margin: 0;
         padding: 0;
@@ -71,7 +63,23 @@
         height: 5rem;
         align-items: center;
         aspect-ratio: 1/1;
-        border: 2px solid black;
+        border: .1rem solid black;
+    }
+
+    .correto{
+        background-color: rgb(0, 170, 0);
+    }
+    
+    .incorreto{
+        background-color: rgb(240, 0, 0);
+    }
+
+    .correto p,.incorreto p{
+        color: white;
+    }
+    
+    .correto,.incorreto{
+        border: .2rem solid black;
     }
 
     .hiraganaObject>input, .hiraganaObject>p{
