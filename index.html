@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
@@ -13,7 +13,7 @@
         <h1>hiragana</h1>
         <div id="hiraganaList"></div>
         <div class="buttons">
-            <button id="buttonStart">Iniciar</button>
+            <button id="buttonChangeGameState">Iniciar</button>
             <button id="buttonEnd">Encerrar</button>
         </div>
         <p id="quantidadeAcertos"></p>
@@ -55,7 +55,7 @@
 
     h1 {
         text-transform: capitalize;
-        font-size: 3rem;
+        font-size: 2.5rem;
     }
 
     #hiraganaList {
@@ -69,24 +69,20 @@
         display: flex;
         flex-direction: column;
         justify-content: space-around;
-        height: 6rem;
+        height: 5rem;
         align-items: center;
         aspect-ratio: 1/1;
         border: 2px solid black;
     }
 
-    .hiraganaObject>input{
+    .hiraganaObject>input, .hiraganaObject>p{
         width: 100%;
-        font-size: 1.5rem;
+        font-size: 1rem;
         text-align: center;
     }
 
-    .hiraganaObject>p {
-        font-size: 1.5rem;
-    }
-
     .hiraganaObject>.charac {
-        font-size: 2rem;
+        font-size: 1.5rem;
     }
 
     .buttons {
